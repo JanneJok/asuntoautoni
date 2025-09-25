@@ -21,6 +21,12 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
+    // Oletuksena estä analytiikka kunnes suostumus annetaan
+    gtag('consent', 'default', {
+        'analytics_storage': 'denied'
+    });
+
+    // Konfiguroi GA4 mutta se ei kerää dataa ennen suostumusta
     gtag('config', 'G-49J5D8J4GG');
     </script>
 
@@ -318,19 +324,9 @@
         <img src="" alt="Suuri kuva" id="lightboxImg">
     </div>
 
-    <!-- Cookie Banner -->
-    <div class="cookie-banner" id="cookieBanner">
-        <div class="cookie-content">
-            <div>
-                <p><strong>Käytämme evästeitä</strong></p>
-                <p>Parannamme käyttökokemustasi evästeiden avulla. Hyväksymällä sallit analytiikan käytön.</p>
-            </div>
-            <div class="cookie-buttons">
-                <button class="cookie-btn cookie-settings" onclick="showCookieSettings()">Asetukset</button>
-                <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Hyväksy kaikki</button>
-            </div>
-        </div>
-    </div>
+
+    <!-- Cookie Manager -->
+    <script src="cookie-manager.js"></script>
 
     <script src="script.js"></script>
 </body>

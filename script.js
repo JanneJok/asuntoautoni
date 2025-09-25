@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
         input.min = today;
     });
     document.getElementById('year').textContent = new Date().getFullYear();
-    checkCookieConsent();
 });
 
 // Header scroll effect
@@ -155,33 +154,6 @@ function closeLightbox() {
         }
     }
 
-// Cookie Banner
-function checkCookieConsent() {
-    const consent = localStorage.getItem('cookieConsent');
-    if (!consent) {
-        setTimeout(() => {
-            document.getElementById('cookieBanner').classList.add('show');
-        }, 2000);
-    } else if (consent === 'accepted') {
-        // Initialize GA4
-        if (typeof gtag !== 'undefined') {
-            gtag('config', 'GA_MEASUREMENT_ID');
-        }
-    }
-}
-
-function acceptCookies() {
-    localStorage.setItem('cookieConsent', 'accepted');
-    document.getElementById('cookieBanner').classList.remove('show');
-    // Initialize GA4
-    if (typeof gtag !== 'undefined') {
-        gtag('config', 'GA_MEASUREMENT_ID');
-    }
-}
-
-function showCookieSettings() {
-    alert('Evästeasetukset: Käytämme vain välttämättömiä evästeitä ja Google Analytics -analytiikkaa. Voit estää analytiikan selaimesi asetuksista.');
-}
 
 // Close modals on outside click
 window.onclick = function(event) {

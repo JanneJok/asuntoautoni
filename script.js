@@ -20,15 +20,15 @@
 
 // Set minimum dates for form inputs
 document.addEventListener('DOMContentLoaded', function() {
+    // EmailJS init - lisää tämä ensimmäiseksi
+    emailjs.init('EV6UX6GIPG231yXUd');
+    
+    // Muut nykyiset DOMContentLoaded-jutut...
     const today = new Date().toISOString().split('T')[0];
     document.querySelectorAll('input[type="date"]').forEach(input => {
         input.min = today;
     });
-
-    // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Initialize
     checkCookieConsent();
 });
 

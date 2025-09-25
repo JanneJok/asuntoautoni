@@ -1,3 +1,23 @@
+// Lisää tämä script.js:n alkuun, ennen muita funktioita
+(function() {
+    // Varmista että EmailJS latautuu oikein
+    if (typeof emailjs === 'undefined') {
+        console.error('EmailJS ei ole latautunut');
+        return;
+    }
+    
+    // Alusta EmailJS
+    emailjs.init({
+        publicKey: 'EV6UX6GIPG231yXUd', // Tarkista että tämä on oikea
+        blockHeadless: true,
+        limitRate: {
+            id: 'app',
+            throttle: 10000,
+        },
+    });
+})();
+
+
 // Set minimum dates for form inputs
 document.addEventListener('DOMContentLoaded', function() {
     const today = new Date().toISOString().split('T')[0];

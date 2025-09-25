@@ -79,41 +79,7 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--dark-green);
-    position: relative;
 }
-
-.logo img {
-    height: 40px; /* Säädä koko tarpeen mukaan */
-    width: auto;
-    transition: var(--transition);
-}
-
-.logo-black {
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.logo-white {
-    opacity: 1;
-}
-
-/* Header scrolled state - swap logos */
-.header.scrolled .logo-white {
-    opacity: 0;
-}
-
-.header.scrolled .logo-black {
-    opacity: 1;
-}
-
-/* Remove text color rules for logo when using images */
-.header:not(.scrolled) .logo,
-.header.scrolled .logo {
-    color: transparent; /* Piilota mahdollinen teksti */
-}
-
 
 .nav-menu {
     display: flex;

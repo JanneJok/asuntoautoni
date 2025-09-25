@@ -6,6 +6,8 @@
     <meta name="description" content="Vuokraa luksus Rapido M96 matkailuauto Kuopiosta. Tilava, täysin varusteltu auto 4 hengelle. Viikkovuokra 1400€.">
     <title>Asuntoautoni - Vuokraa Rapido M96 Kuopiosta</title>
     
+    <link rel="stylesheet" href="styles.css">
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
@@ -14,690 +16,12 @@
       gtag('js', new Date());
       gtag('config', 'GA_MEASUREMENT_ID');
     </script>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-green: #4CAF50;
-            --dark-green: #21482C;
-            --light-green: #C7D8C0;
-            --text-dark: #333333;
-            --text-gray: #555555;
-            --white: #ffffff;
-            --light-bg: #f9f9f9;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
-
-        /* Header Styles */
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--light-green);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .header.scrolled {
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            height: 50px;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-        }
-
-        .nav-menu a:hover {
-            color: var(--primary-green);
-            background: rgba(76, 175, 80, 0.1);
-        }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--text-dark);
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--light-green) 0%, #e8f5e9 100%);
-            padding: 120px 20px 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: var(--white);
-            transform: skewY(-2deg);
-            transform-origin: bottom right;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            color: var(--text-dark);
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-gray);
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease 0.2s backwards;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--primary-green);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease 0.4s backwards;
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(76, 175, 80, 0.4);
-        }
-
-        /* Image Carousel */
-        .carousel-section {
-            padding: 4rem 2rem;
-            background: var(--white);
-        }
-
-        .carousel-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .carousel-header h2 {
-            font-size: 2.5rem;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-        }
-
-        .carousel-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .carousel-track {
-            display: flex;
-            gap: 1.5rem;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            padding: 1rem 0 2rem;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary-green) var(--light-bg);
-        }
-
-        .carousel-track::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .carousel-track::-webkit-scrollbar-track {
-            background: var(--light-bg);
-            border-radius: 10px;
-        }
-
-        .carousel-track::-webkit-scrollbar-thumb {
-            background: var(--primary-green);
-            border-radius: 10px;
-        }
-
-        .carousel-item {
-            min-width: 350px;
-            height: 250px;
-            border-radius: 15px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .carousel-item:hover {
-            transform: scale(1.05);
-        }
-
-        .carousel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 4rem 2rem;
-            background: linear-gradient(to bottom, var(--light-bg), var(--white));
-        }
-
-        .features-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: var(--light-green);
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .features h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--text-dark);
-            margin-bottom: 3rem;
-        }
-
-        .features-list {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: rgba(255,255,255,0.7);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .feature-item:hover {
-            transform: translateX(10px);
-            background: rgba(255,255,255,0.9);
-        }
-
-        .feature-icon {
-            font-size: 1.5rem;
-            color: var(--primary-green);
-        }
-
-        /* Pricing Section */
-        .pricing {
-            padding: 4rem 2rem;
-            background: var(--white);
-        }
-
-        .pricing-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .pricing-card {
-            background: linear-gradient(135deg, var(--primary-green), #66bb6a);
-            color: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.3);
-        }
-
-        .price-tag {
-            font-size: 3rem;
-            font-weight: bold;
-            margin: 1rem 0;
-        }
-
-        /* About Section */
-        .about {
-            padding: 4rem 2rem;
-            background: var(--light-bg);
-        }
-
-        .about-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23C7D8C0" width="1200" height="600"/><path fill="%234CAF50" d="M0 300L50 325L100 300L150 275L200 300L250 325L300 300L350 275L400 300L450 325L500 300L550 275L600 300L650 325L700 300L750 275L800 300L850 325L900 300L950 275L1000 300L1050 325L1100 300L1150 275L1200 300V600H0V300Z"/></svg>');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 3rem;
-            border-radius: 20px;
-        }
-
-        .about h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .about-grid {
-            display: grid;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .about-item {
-            background: rgba(255,255,255,0.1);
-            padding: 1.5rem;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-        }
-
-        /* Contact Float Button */
-        .contact-fab {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--primary-green);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            z-index: 999;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-fab:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 30px rgba(0,0,0,0.3);
-        }
-
-        /* Contact Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.7);
-            z-index: 2000;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal.show {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-            animation: slideUp 0.3s ease;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--text-gray);
-            transition: color 0.3s ease;
-        }
-
-        .modal-close:hover {
-            color: var(--text-dark);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-green);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: var(--primary-green);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            background: #45a049;
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: white;
-            padding: 3rem 2rem 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-green);
-        }
-
-        /* Cookie Banner */
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            padding: 1.5rem;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
-            z-index: 1500;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .cookie-banner.show {
-            transform: translateY(0);
-        }
-
-        .cookie-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .cookie-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .cookie-btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .cookie-accept {
-            background: var(--primary-green);
-            color: white;
-        }
-
-        .cookie-settings {
-            background: transparent;
-            color: var(--primary-green);
-            border: 2px solid var(--primary-green);
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            }
-
-            .nav-menu.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .carousel-item {
-                min-width: 85%;
-            }
-
-            .features-list {
-                gap: 1rem;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .cookie-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .cookie-buttons {
-                width: 100%;
-                flex-direction: column;
-            }
-
-            .cookie-btn {
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header-content {
-                padding: 1rem;
-            }
-
-            .hero {
-                padding: 100px 20px 60px;
-            }
-
-            .carousel-section,
-            .features,
-            .pricing,
-            .about {
-                padding: 2rem 1rem;
-            }
-
-            .features-container,
-            .about-container {
-                padding: 2rem 1.5rem;
-            }
-
-            .modal-content {
-                padding: 2rem 1.5rem;
-            }
-        }
-
-        /* Lightbox */
-        .lightbox {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.95);
-            z-index: 3000;
-            cursor: zoom-out;
-        }
-
-        .lightbox.show {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90vh;
-            border-radius: 10px;
-            animation: slideUp 0.3s ease;
-        }
-
-        /* Terms Modal */
-        .terms-modal {
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .terms-content {
-            line-height: 1.8;
-        }
-
-        .terms-content h3 {
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: var(--primary-green);
-        }
-
-        .terms-content p,
-        .terms-content li {
-            margin-bottom: 0.8rem;
-            color: var(--text-gray);
-        }
-    </style>
 </head>
 <body>
     <!-- Header -->
     <header class="header" id="header">
         <div class="header-content">
-            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40'><text x='10' y='30' font-family='Arial' font-size='24' font-weight='bold' fill='%2321482C'>Asuntoautoni</text></svg>" alt="Asuntoautoni" class="logo">
+            <div class="logo">Asuntoautoni</div>
             
             <nav>
                 <ul class="nav-menu" id="navMenu">
@@ -718,106 +42,165 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Luksusta tien päällä – Vuokraa Rapido M96 Kuopiosta</h1>
-            <p>Täysin varusteltu, tilava ja laadukas matkailuauto tekee lomastasi unohtumattoman elämyksen.</p>
-            <a href="#contact" class="cta-button" onclick="showContactModal()">Varaa nyt</a>
+            <h1>Luksusta tien päällä</h1>
+            <p>Vuokraa Rapido M96 Kuopiosta</p>
+            <p class="hero-subtitle">Täysin varusteltu, tilava ja laadukas matkailuauto tekee lomastasi unohtumattoman elämyksen.</p>
+            <button class="cta-button" onclick="showContactModal()">Varaa nyt</button>
         </div>
     </section>
 
-    <!-- Image Carousel -->
-    <section class="carousel-section" id="gallery">
-        <div class="carousel-header">
-            <h2>Tutustu Rapido M96 -matkailuautoon</h2>
-            <p>Kuvia auton sisältä ja ulkoa – tilaa, laatua ja mukavuutta.</p>
-        </div>
-        
-        <div class="carousel-container">
-            <div class="carousel-track">
-                <div class="carousel-item" onclick="openLightbox(0)">
-                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 350 250'><rect fill='%23C7D8C0' width='350' height='250'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='%2321482C' font-size='20'>Rapido M96 ulkokuva</text></svg>" alt="Rapido M96 ulkokuva">
+    <!-- Gallery Section -->
+    <section class="section gallery-section" id="gallery">
+        <div class="section-content">
+            <div class="section-header">
+                <h2>Tutustu Rapido M96 -matkailuautoon</h2>
+                <p>Kuvia auton sisältä ja ulkoa – tilaa, laatua ja mukavuutta.</p>
+            </div>
+            
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="scrollCarousel(-1)">‹</button>
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-item" onclick="openLightbox(0)">
+                        <img src="images/c55i.webp" alt="Rapido M96 ulkokuva" loading="lazy">
+                    </div>
+                    <div class="carousel-item" onclick="openLightbox(1)">
+                        <img src="images/c55i-5.webp" alt="Tilava olohuone ja keittiö" loading="lazy">
+                    </div>
+                    <div class="carousel-item" onclick="openLightbox(2)">
+                        <img src="images/camping-car.webp" alt="Ruokailutila ja sohvaryhmä" loading="lazy">
+                    </div>
+                    <div class="carousel-item" onclick="openLightbox(3)">
+                        <img src="images/c55i-nuit.webp" alt="Makuutilat illalla" loading="lazy">
+                    </div>
+                    <div class="carousel-item" onclick="openLightbox(4)">
+                        <img src="images/ceefe67e.webp" alt="Sisätilat päivänvalossa" loading="lazy">
+                    </div>
                 </div>
-                <div class="carousel-item" onclick="openLightbox(1)">
-                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 350 250'><rect fill='%23E8F5E9' width='350' height='250'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='%2321482C' font-size='20'>Tilava olohuone</text></svg>" alt="Tilava olohuone">
-                </div>
-                <div class="carousel-item" onclick="openLightbox(2)">
-                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 350 250'><rect fill='%23C7D8C0' width='350' height='250'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='%2321482C' font-size='20'>Ruokailutila</text></svg>" alt="Ruokailutila">
-                </div>
-                <div class="carousel-item" onclick="openLightbox(3)">
-                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 350 250'><rect fill='%23E8F5E9' width='350' height='250'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='%2321482C' font-size='20'>Makuutilat</text></svg>" alt="Makuutilat">
-                </div>
-                <div class="carousel-item" onclick="openLightbox(4)">
-                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 350 250'><rect fill='%23C7D8C0' width='350' height='250'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='%2321482C' font-size='20'>Moderni keittiö</text></svg>" alt="Moderni keittiö">
-                </div>
+                <button class="carousel-btn next" onclick="scrollCarousel(1)">›</button>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="features-container">
-            <h2>Miksi valita meidät seuraavalle reissullesi?</h2>
-            <div class="features-list">
-                <div class="feature-item">
-                    <span class="feature-icon">🚐</span>
-                    <p><strong>Tilava ja laadukas</strong> – Rapido M96 tarjoaa avarat sisätilat ja tyylikkään sisustuksen</p>
+    <section class="section features-section" id="features">
+        <div class="section-content">
+            <div class="features-container">
+                <div class="features-icon">
+                    <svg width="80" height="80" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="15" y="25" width="14" height="18" rx="2"/>
+                        <rect x="17" y="30" width="10" height="8" rx="1"/>
+                        <path d="M18 25 v-2 a2 2 0 0 1 2-2 h4 a2 2 0 0 1 2 2 v2"/>
+                        <rect x="35" y="18" width="16" height="28" rx="2"/>
+                        <path d="M37 18 v-4 a2 2 0 0 1 2-2 h8 a2 2 0 0 1 2 2 v4"/>
+                        <circle cx="38" cy="46" r="2"/>
+                        <circle cx="48" cy="46" r="2"/>
+                    </svg>
                 </div>
-                <div class="feature-item">
-                    <span class="feature-icon">✨</span>
-                    <p><strong>Täydellinen varustelu</strong> – Keittiö, WC, suihku, ilmastointi ja tehokas lämmitys</p>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">📍</span>
-                    <p><strong>Helppo nouto Kuopiosta</strong> – Sijainti mahdollistaa sujuvan aloituksen matkallesi</p>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">👨‍👩‍👧‍👦</span>
-                    <p><strong>Jopa 4 hengelle</strong> – Viihtyisä majoitus perheelle tai ystäväporukalle</p>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🎯</span>
-                    <p><strong>Kaikki mukana</strong> – Petivaatteet, keittiötarvikkeet, grilli ja SUP-lauta sisältyvät hintaan</p>
+                
+                <h2>Miksi valita meidät seuraavalle reissullesi?</h2>
+                
+                <div class="features-list">
+                    <div class="feature-item">
+                        <span class="feature-icon">🚐</span>
+                        <div>
+                            <strong>Tilava ja laadukas</strong>
+                            <p>Rapido M96 tarjoaa avarat sisätilat ja tyylikkään sisustuksen</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✨</span>
+                        <div>
+                            <strong>Täydellinen varustelu</strong>
+                            <p>Keittiö, WC, suihku, ilmastointi ja tehokas lämmitys</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📍</span>
+                        <div>
+                            <strong>Helppo nouto Kuopiosta</strong>
+                            <p>Sijainti mahdollistaa sujuvan aloituksen matkallesi</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">👨‍👩‍👧‍👦</span>
+                        <div>
+                            <strong>Jopa 4 hengelle</strong>
+                            <p>Viihtyisä majoitus perheelle tai ystäväporukalle</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎯</span>
+                        <div>
+                            <strong>Kaikki mukana</strong>
+                            <p>Petivaatteet, keittiötarvikkeet, grilli ja SUP-lauta sisältyvät hintaan</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="pricing-container">
-            <h2>Selkeä ja reilu hinnoittelu</h2>
-            <div class="pricing-card">
-                <h3>Viikkovuokra</h3>
-                <div class="price-tag">1400 €</div>
-                <p>Sisältää 2500 km / viikko</p>
-                <p>Ylimenevät kilometrit: 0,30 € / km</p>
-                <br>
-                <p><strong>Hintaan sisältyy:</strong></p>
-                <p>✓ Täysi varustelu ✓ Vakuutukset ✓ Petivaatteet<br>
-                   ✓ Keittiötarvikkeet ✓ Grilli ✓ SUP-lauta</p>
-                <br>
-                <a href="#" onclick="showTerms()" style="color: white; text-decoration: underline;">Lue kaikki vuokrausehdot →</a>
+    <section class="section pricing-section" id="pricing">
+        <div class="section-content">
+            <div class="pricing-container">
+                <h2>Selkeä ja reilu hinnoittelu</h2>
+                <div class="pricing-card">
+                    <h3>Viikkovuokra</h3>
+                    <div class="price-tag">1400 €</div>
+                    <p>Sisältää 2500 km / viikko</p>
+                    <p class="price-extra">Ylimenevät kilometrit: 0,30 € / km</p>
+                    
+                    <div class="price-includes">
+                        <p><strong>Hintaan sisältyy:</strong></p>
+                        <div class="include-grid">
+                            <span>✓ Täysi varustelu</span>
+                            <span>✓ Vakuutukset</span>
+                            <span>✓ Petivaatteet</span>
+                            <span>✓ Keittiötarvikkeet</span>
+                            <span>✓ Grilli</span>
+                            <span>✓ SUP-lauta</span>
+                        </div>
+                    </div>
+                    
+                    <button class="terms-link" onclick="showTerms()">Lue kaikki vuokrausehdot →</button>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
-        <div class="about-container">
-            <h2>Rapido M96 – Tilavaa mukavuutta unohtumattomiin seikkailuihin</h2>
-            
-            <div class="about-grid">
-                <div class="about-item">
-                    <p>Rapido M96 tarjoaa avaraa tilaa, huippuluokan mukavuutta sekä turvallisuutta, jotka tekevät matkustamisesta rentouttavaa ja miellyttävää. Tässä matkailuautossa on tilava olohuone, jossa viihtyy koko perhe tai kaveriporukka.</p>
-                </div>
+    <section class="section about-section" id="about">
+        <div class="section-content">
+            <div class="about-container">
+                <h2>Rapido M96 – Tilavaa mukavuutta unohtumattomiin seikkailuihin</h2>
                 
-                <div class="about-item">
-                    <p>Hyvin varusteltu keittiö sisältää kaiken tarpeellisen kokkailuun. Auto on valmiiksi varustettu laadukkailla keittiötarvikkeilla sekä mukavilla petivaatteilla, joten mukaan tarvitset vain hyvän matkaseuran ja seikkailumieltä.</p>
+                <div class="about-grid">
+                    <div class="about-item">
+                        <p>Rapido M96 tarjoaa avaraa tilaa, huippuluokan mukavuutta sekä turvallisuutta, jotka tekevät matkustamisesta rentouttavaa ja miellyttävää. Tässä matkailuautossa on tilava olohuone, jossa viihtyy koko perhe tai kaveriporukka.</p>
+                    </div>
+                    
+                    <div class="about-item">
+                        <p>Hyvin varusteltu keittiö sisältää kaiken tarpeellisen kokkailuun. Auto on valmiiksi varustettu laadukkailla keittiötarvikkeilla sekä mukavilla petivaatteilla, joten mukaan tarvitset vain hyvän matkaseuran ja seikkailumieltä.</p>
+                    </div>
+                    
+                    <div class="about-item">
+                        <p>Autosta löytyvät kätevä WC ja erillinen suihku, jotka tuovat matkantekoon kodinomaista mukavuutta. Ilmastointi pitää lämpimilläkin keleillä olon miellyttävän viileänä, kun taas tehokas lämmitys takaa lämpimät ja tunnelmalliset illat myös viileämmillä keleillä.</p>
+                    </div>
                 </div>
-                
-                <div class="about-item">
-                    <p>Autosta löytyvät kätevä WC ja erillinen suihku, jotka tuovat matkantekoon kodinomaista mukavuutta. Ilmastointi pitää lämpimilläkin keleillä olon miellyttävän viileänä, kun taas tehokas lämmitys takaa lämpimät ja tunnelmalliset illat myös viileämmillä keleillä.</p>
-                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section">
+        <div class="section-content">
+            <div class="contact-container">
+                <h2>Ota yhteyttä ja kysy vapaat ajat!</h2>
+                <p>info@asuntoautoni.fi</p>
+                <button class="cta-button" onclick="showContactModal()">Lähetä viesti</button>
             </div>
         </div>
     </section>
@@ -832,7 +215,7 @@
                 <a href="#pricing">Hinnoittelu</a>
                 <a href="#" onclick="showTerms()">Vuokrausehdot</a>
             </div>
-            <p style="margin-top: 2rem; color: #999;">© <span id="year"></span> Asuntoautoni. Kaikki oikeudet pidätetään.</p>
+            <p>© <span id="year"></span> Asuntoautoni. Kaikki oikeudet pidätetään.</p>
         </div>
     </footer>
 
@@ -846,7 +229,7 @@
         <div class="modal-content">
             <span class="modal-close" onclick="closeContactModal()">&times;</span>
             <h2>Ota yhteyttä</h2>
-            <p style="color: var(--text-gray); margin-bottom: 2rem;">Täytä lomake niin otamme sinuun yhteyttä pian!</p>
+            <p class="modal-subtitle">Täytä lomake niin otamme sinuun yhteyttä pian!</p>
             
             <form id="contactForm" onsubmit="handleSubmit(event)">
                 <div class="form-group">
@@ -866,12 +249,12 @@
                 
                 <div class="form-group">
                     <label>Vuokra alkaa *</label>
-                    <input type="date" name="startDate" required min="">
+                    <input type="date" name="startDate" required>
                 </div>
                 
                 <div class="form-group">
                     <label>Vuokra päättyy *</label>
-                    <input type="date" name="endDate" required min="">
+                    <input type="date" name="endDate" required>
                 </div>
                 
                 <div class="form-group">
@@ -892,13 +275,13 @@
             
             <div class="terms-content">
                 <h3>1. Vuokrauksen kohde</h3>
-                <p>Vuokrauksen kohteena on Rapido M96 -matkailuauto, rekisterinumero XXX-XXX. Auto luovutetaan vuokraajalle täydessä ajokunnossa, puhtaana ja täydellä polttoainetankilla.</p>
+                <p>Vuokrauksen kohteena on Rapido M96 -matkailuauto. Auto luovutetaan vuokraajalle täydessä ajokunnossa, puhtaana ja täydellä polttoainetankilla.</p>
                 
                 <h3>2. Vuokra-aika ja hinnoittelu</h3>
                 <p>Minimivuokra-aika on 7 vuorokautta. Viikkovuokra on 1400 € (sis. ALV 24%). Hintaan sisältyy 2500 km ajokilometrejä viikossa. Ylimenevät kilometrit veloitetaan 0,30 €/km.</p>
                 
                 <h3>3. Vakuus</h3>
-                <p>Vuokrauksesta peritään 1500 € vakuusmaksu, joka palautetaan vuokrauksen päätyttyä, mikäli auto palautetaan sovitussa kunnossa ilman vaurioita. Vakuudesta vähennetään mahdolliset vahingot, siivouskustannukset ja ylimääräiset kilometrit.</p>
+                <p>Vuokrauksesta peritään 1500 € vakuusmaksu, joka palautetaan vuokrauksen päätyttyä, mikäli auto palautetaan sovitussa kunnossa ilman vaurioita.</p>
                 
                 <h3>4. Vuokraajan vaatimukset</h3>
                 <ul>
@@ -909,61 +292,25 @@
                 </ul>
                 
                 <h3>5. Vakuutukset</h3>
-                <p>Auto on täyskaskovakuutettu. Omavastuu kolari- ja varkaustapauksissa on 1500 €. Lasivahingon omavastuu on 200 €. Vuokraaja on vastuussa omavastuuosuudesta vahinkotapauksissa.</p>
+                <p>Auto on täyskaskovakuutettu. Omavastuu kolari- ja varkaustapauksissa on 1500 €. Lasivahingon omavastuu on 200 €.</p>
                 
                 <h3>6. Käyttörajoitukset</h3>
                 <ul>
                     <li>Autoa ei saa viedä ulkomaille ilman erillistä sopimusta</li>
                     <li>Tupakointi autossa on ehdottomasti kielletty (sakko 500 €)</li>
                     <li>Lemmikkieläimet sallitaan erillisestä sopimuksesta (lisämaksu 100 €)</li>
-                    <li>Autoa ei saa käyttää kilpailuihin tai opetusajoon</li>
                 </ul>
                 
-                <h3>7. Polttoaine ja AdBlue</h3>
-                <p>Auto luovutetaan täydellä tankilla ja se tulee palauttaa täydellä tankilla. Puuttuva polttoaine veloitetaan senhetkisen hinnan mukaan + 20 € täyttömaksu. AdBlue-lisäaine sisältyy vuokraan.</p>
+                <h3>7. Polttoaine</h3>
+                <p>Auto luovutetaan täydellä tankilla ja se tulee palauttaa täydellä tankilla. Puuttuva polttoaine veloitetaan senhetkisen hinnan mukaan + 20 € täyttömaksu.</p>
                 
-                <h3>8. Siivous</h3>
-                <p>Auto tulee palauttaa siistissä kunnossa. Normaalikäytön jäljet hyväksytään. WC-kasetti tulee tyhjentää ja puhdistaa. Mikäli auto palautetaan erittäin likaisena, veloitetaan siivouksesta 150-300 €.</p>
-                
-                <h3>9. Varusteet</h3>
-                <p>Vuokraan sisältyvät:</p>
-                <ul>
-                    <li>Petivaatteet 4 hengelle</li>
-                    <li>Keittiövälineet ja astiat</li>
-                    <li>Kaasupullot (2 kpl)</li>
-                    <li>Sähkökaapeli ja vesiletkut</li>
-                    <li>Grilli</li>
-                    <li>SUP-lauta</li>
-                    <li>Markiisi</li>
-                </ul>
-                
-                <h3>10. Vauriot ja rikkoutumiset</h3>
-                <p>Vuokraaja on velvollinen ilmoittamaan välittömästi kaikista vaurioista. Vuokraaja vastaa aiheuttamistaan vahingoista omavastuun määrään asti. Tahallisesti tai törkeällä huolimattomuudella aiheutetut vahingot veloitetaan täysimääräisinä.</p>
-                
-                <h3>11. Tekninen vika</h3>
-                <p>Teknisestä viasta tulee ilmoittaa välittömästi vuokranantajalle. Vuokranantaja järjestää korjauksen tai vaihtoauton mahdollisimman pian. Teknisestä viasta ei myönnetä hinnanalennusta, ellei se estä auton käyttöä yli 24 tunnin ajan.</p>
-                
-                <h3>12. Peruutusehdot</h3>
+                <h3>8. Peruutusehdot</h3>
                 <ul>
                     <li>Yli 30 vrk ennen vuokrausta: maksu palautetaan kokonaan</li>
                     <li>14-30 vrk ennen: 50% vuokrasta</li>
                     <li>7-13 vrk ennen: 75% vuokrasta</li>
                     <li>Alle 7 vrk ennen: ei palautusta</li>
                 </ul>
-                
-                <h3>13. Ylivoimainen este</h3>
-                <p>Force majeure -tilanteissa (esim. pandemia, luonnonkatastrofi) vuokra siirretään tai palautetaan kokonaan.</p>
-                
-                <h3>14. Yhteystiedot</h3>
-                <p>
-                    Vuokranantaja: Asuntoautoni<br>
-                    Puhelin: 040 XXX XXXX<br>
-                    Sähköposti: info@asuntoautoni.fi<br>
-                    24/7 Päivystys: 040 XXX XXXX
-                </p>
-                
-                <h3>15. Sopimuksen hyväksyminen</h3>
-                <p>Vuokrasopimus astuu voimaan, kun vuokraaja on maksanut varausmaksun ja allekirjoittanut vuokrasopimuksen. Nämä ehdot ovat osa vuokrasopimusta.</p>
             </div>
         </div>
     </div>
@@ -987,149 +334,6 @@
         </div>
     </div>
 
-    <script>
-        // Set minimum dates for form inputs
-        const today = new Date().toISOString().split('T')[0];
-        document.querySelectorAll('input[type="date"]').forEach(input => {
-            input.min = today;
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Mobile menu toggle
-        function toggleMenu() {
-            const navMenu = document.getElementById('navMenu');
-            navMenu.classList.toggle('active');
-        }
-
-        function closeMenu() {
-            const navMenu = document.getElementById('navMenu');
-            navMenu.classList.remove('active');
-        }
-
-        // Contact Modal
-        function showContactModal() {
-            document.getElementById('contactModal').classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeContactModal() {
-            document.getElementById('contactModal').classList.remove('show');
-            document.body.style.overflow = '';
-        }
-
-        // Terms Modal
-        function showTerms() {
-            document.getElementById('termsModal').classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeTermsModal() {
-            document.getElementById('termsModal').classList.remove('show');
-            document.body.style.overflow = '';
-        }
-
-        // Lightbox
-        const images = [
-            'Rapido M96 ulkokuva',
-            'Tilava olohuone',
-            'Ruokailutila',
-            'Makuutilat',
-            'Moderni keittiö'
-        ];
-
-        function openLightbox(index) {
-            const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightboxImg');
-            // In production, replace with actual image URLs
-            img.src = `data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'><rect fill='%23C7D8C0' width='800' height='600'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='%2321482C' font-size='40'>${images[index]}</text></svg>`;
-            lightbox.classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('show');
-            document.body.style.overflow = '';
-        }
-
-        // Form submission
-        function handleSubmit(event) {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData);
-            
-            // Here you would normally send the data to your server
-            console.log('Form data:', data);
-            
-            // Show success message
-            alert('Kiitos yhteydenotostasi! Palaamme asiaan mahdollisimman pian.');
-            closeContactModal();
-            event.target.reset();
-        }
-
-        // Cookie Banner
-        function checkCookieConsent() {
-            const consent = localStorage.getItem('cookieConsent');
-            if (!consent) {
-                setTimeout(() => {
-                    document.getElementById('cookieBanner').classList.add('show');
-                }, 2000);
-            } else if (consent === 'accepted') {
-                // Initialize GA4
-                gtag('config', 'GA_MEASUREMENT_ID');
-            }
-        }
-
-        function acceptCookies() {
-            localStorage.setItem('cookieConsent', 'accepted');
-            document.getElementById('cookieBanner').classList.remove('show');
-            // Initialize GA4
-            gtag('config', 'GA_MEASUREMENT_ID');
-        }
-
-        function showCookieSettings() {
-            alert('Evästeasetukset: Käytämme vain välttämättömiä evästeitä ja Google Analytics -analytiikkaa. Voit estää analytiikan selaimesi asetuksista.');
-        }
-
-        // Close modals on outside click
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.classList.remove('show');
-                document.body.style.overflow = '';
-            }
-        }
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && href !== '#contact') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }
-            });
-        });
-
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Initialize
-        checkCookieConsent();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
-                <a href="#" onclick="showTerms()">Vuokrausehdot</a>

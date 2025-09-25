@@ -87,20 +87,53 @@ function closeLightbox() {
     document.body.style.overflow = '';
 }
 
+
 // Form submission
-function handleSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
-    
-    // Here you would normally send the data to your server
-    console.log('Form data:', data);
-    
-    // Show success message
-    alert('Kiitos yhteydenotostasi! Palaamme asiaan mahdollisimman pian.');
-    closeContactModal();
-    event.target.reset();
-}
+    async function handleSubmit(event) {
+        event.preventDefault();
+        
+        // Näytä loading-tila
+        const submitBtn = event.target.querySelector('.submit-btn');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Lähetetään...';
+        submitBtn.disabled = true;
+        
+        const formData = new FormData(event.target);
+        const data = Object.fromEntries(formData);
+        
+        // EmailJS parametrit
+        const templateParams = {
+            from_name: data.name,
+            from_email: data.email,
+            phone: data.phone,
+            start_date: data.startDate,
+            end_date: data.endDate,
+            message: data.message,
+            to_email: 'janne.jokela@live.fi'
+        };
+        
+        try {
+            // Lähetä sähköposti EmailJS:n kautta
+            await emailjs.send(
+                'service_nnxux1e',  // service ID
+                'template_rnwavtk', // template ID
+                templateParams
+            );
+            
+            // Onnistui
+            alert('Kiitos yhteydenotostasi! Viesti on lähetetty onnistuneesti. Palaamme asiaan mahdollisimman pian.');
+            closeContactModal();
+            event.target.reset();
+            
+        } catch (error) {
+            console.error('Virhe sähköpostin lähetyksessä:', error);
+            alert('Viestin lähetyksessä tapahtui virhe. Yritä uudelleen tai ota yhteyttä suoraan puhelimitse.');
+        } finally {
+            // Palauta nappi
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
+    }
 
 // Cookie Banner
 function checkCookieConsent() {

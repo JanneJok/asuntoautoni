@@ -788,7 +788,6 @@ footer {
         top: 100%;
         left: 0;
         right: 0;
-        background: white;
         flex-direction: column;
         padding: 1rem;
         box-shadow: 0 5px 20px rgba(0,0,0,0.1);
@@ -796,6 +795,14 @@ footer {
 
     .nav-menu.active {
         display: flex;
+    }
+
+    .header:not(.scrolled) .nav-menu.active {
+        background: rgba(0, 0, 0, 0.9);
+    }
+
+    .header.scrolled .nav-menu.active {
+        background: white;
     }
 
     .menu-toggle {
